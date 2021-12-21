@@ -52,3 +52,54 @@
     display: flex;
     justify-content: space-around;
 }
+
+
+.album-list {
+    display: flex;
+    justify-content: space-around;
+    place-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.album-list.album-open {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    gap: 4rem;
+    transform: translateY(70px);
+}
+
+.album-list.album-open img.album-img-active {
+    width: 500px;
+    height: 500px;
+    opacity: 1;
+}
+
+.album-list.album-open img {
+    opacity: 0.2;
+    width: 200px;
+    height: 200px;
+}
+
+.album-list img {
+    opacity: 0.8;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.album-img:not(.album-open .album-img):hover {
+    cursor: pointer;
+    transform: scale(1.2) skew(2deg);
+    opacity: 1;
+    z-index: 2;
+}
+
+.album-back {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
