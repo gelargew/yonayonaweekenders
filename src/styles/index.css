@@ -65,6 +65,7 @@
 }
 
 .bg-text-container {
+    z-index: -1;
     position: absolute;
     overflow: hidden;
     width: 100%;
@@ -134,4 +135,40 @@ section#singles {
     color: black;
     transform: skew(-5deg);
     width: 120vw;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    place-items: center;
+    justify-content: center;
+
+}
+
+.singles-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.singles-list li {
+    position: relative;
+    width: 100%;
+    padding: 10px 2rem;
+}
+
+.singles-list li:hover {
+    cursor: pointer;
+}
+
+.singles-list li a {
+    mix-blend-mode: difference;
+    color: white;
+}
+
+.singles-img {
+    position: absolute;
+    z-index: -1;
+    height: 70%;
+    top: -6vh;
+    right: 5vw;
 }

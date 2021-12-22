@@ -16,6 +16,11 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .bg-text {
   opacity: 0.05;
   font-size: 30vh;
@@ -48,10 +53,6 @@ h1, h2, h3, h4, h5, h6 {
   animation: scrolling-bot2-inverse 20s linear infinite;
   animation-delay: 10s; 
 }
-
-
-
-
 
 
 @keyframes scrolling-bot1 {
@@ -90,4 +91,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+svg.box-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
+svg.box-svg rect {
+  mix-blend-mode: difference;
+}

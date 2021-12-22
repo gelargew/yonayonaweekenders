@@ -1,52 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSpring, a, config  } from 'react-spring'
 import BgText from '../components/BgText'
+import { useMove } from '@use-gesture/react'
+
+import { SINGLES_DATA } from '../CONSTANTS/singles'
 
 
-const SINGLES_DATA = [
-    {
-        title: 'Night Rider feat.荒井岳史(the band apart)',
-        buy: 'https://jvcmusic.lnk.to/Night_Rider'
-    },
-    {
-        title: 'Good bye',
-        buy: 'https://jvcmusic.lnk.to/_Good_bye'
-    },
-    {
-        title: 'いい夢/唄が歩く時',
-        buy: 'https://tower.jp/item/5183085/%E3%81%84%E3%81%84%E5%A4%A2%EF%BC%9C%E6%95%B0%E9%87%8F%E9%99%90%E5%AE%9A%E7%9B%A4%EF%BC%9E'
-    },
-    {
-        title: 'いい夢',
-        buy: 'https://jvcmusic.lnk.to/IiYume'
-    },
-    {
-        title: '君とdrive / 東京ミッドナイトクルージングクラブ',
-        buy: 'https://tower.jp/item/5143526/%E5%90%9B%E3%81%A8drive'
-    },
-    {
-        title: 'R.M.T.T',
-        buy: 'https://lnk.to/RMTT'
-    },
-    {
-        title: '君とdrive',
-        buy: 'https://lnk.to/kimitodrive'
-    },
-    {
-        title: '遊泳/夜のgroovin',
-        buy: "https://tower.jp/item/5048889/%E9%81%8A%E6%B3%B3---%E5%A4%9C%E3%81%AEgroovin'"
-    },
-    {
-        title: '東京ミッドナイトクルージングクラブ',
-        buy: 'https://lnk.to/tokyomidnightcruisingclub'
-    },
-    {
-        title: '遊泳',
-        buy: 'https://lnk.to/yuuei'
-    }
-]
+
+const Box = ({active=false}) =>   {
+
+    const [isHovered, setIsHovered] = useState(false)
+    const {offset} = useSpring({
+        offset: isHovered ? 0 : -1500,
+        config: {
+            mass: 2,
+            friction: 50,
+            tension: 100
+        }
+    })
+
+    useEffect(() => {
+        setIsHovered(active)
+    }, [active])
+
+    return (
+        <a.svg 
+        className='box-svg'
+        onPointerEnter={() => setIsHovered(true)} 
+        onPointerLeave={() => setIsHovered(active)}
+        width="100%" 
+        height="100%" 
+        strokeDasharray={1500} 
+        strokeDashoffset={offset} 
+        fill="none"
+        >
+            <rect x="2.5" y="2.5" width="90%" height="90%" stroke="white" stroke-width="5"/>
+        </a.svg>
+    )
+}
+
 
 export default function Singles()  {
+    const [detail, setDetail] = useState({} as typeof SINGLES_DATA[0])
+    const [{y}, spring] = useSpring(() => ({
+        y: 0
+    }))
 
+    const bind = useMove(({xy}) => {
+        spring.start({ y: xy[1]/2})
+        console.log(xy[1])
+    })
 
     return (
         <section id='singles'>
@@ -56,7 +59,18 @@ export default function Singles()  {
                 <BgText text='SINGLES' inverse />
             </div>
             <h2>SINGLES</h2>
-
+            {/* @ts-ignore */}
+            <ul className='singles-list' {...bind()}>
+                {SINGLES_DATA.map((data, idx) => {
+                    return (
+                        <li key={data.title} onPointerEnter={() => setDetail(SINGLES_DATA[idx])} title='buy'>
+                            <Box active={detail.title === data.title} /> 
+                            <a href={data.buy}  target='_blank'>{data.title}</a>
+                        </li>
+                    )
+                })}
+            </ul>
+            {detail.imgURL && <a.img className='singles-img' src={detail.imgURL} style={{ y }}/>}
         </section>
     )
 }
