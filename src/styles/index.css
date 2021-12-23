@@ -13,7 +13,6 @@
     flex-direction: column;
     justify-content: center;
     place-items: center;
-    gap: 3rem;
     width: 100vw;
     height: 100vh;
 }
@@ -28,7 +27,7 @@
 #section-1 h1 {
     z-index: 2;
     position: relative;
-    font-size: 14vw;
+    font-size: 12vw;
     font-family: 'Roboto';
     font-weight: 900;
     font-stretch: extra-expanded;
@@ -128,6 +127,11 @@
     height: 2.5rem;
 }
 
+.album-detail a {
+    position: relative;
+    padding: 1rem;
+}
+
 
 
 section#singles {
@@ -147,13 +151,13 @@ section#singles {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.2rem;
 }
 
 .singles-list li {
     position: relative;
     width: 100%;
-    padding: 10px 2rem;
+    padding: 10px 1rem;
 }
 
 .singles-list li:hover {
@@ -163,6 +167,7 @@ section#singles {
 .singles-list li a {
     mix-blend-mode: difference;
     color: white;
+    font-size: larger;
 }
 
 .singles-img {
@@ -172,3 +177,109 @@ section#singles {
     top: -6vh;
     right: 5vw;
 }
+
+section#profile {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.profile-img {
+    height: 60%;
+    position: relative;
+}
+
+.profile-img img {
+    height: 100%;
+}
+
+.profile-img svg.box-svg {
+    width: 20%;
+    height: 70%;
+}
+
+.profile-img:hover {
+    cursor: pointer;
+}
+
+.profile-img svg.box-svg.box1 {
+    left: 14%;
+    top: 25%;
+}
+.profile-img svg.box-svg.box2 {
+    left: 31%;
+    top: 25%;
+}
+.profile-img svg.box-svg.box3 {
+    left: 50%;
+    top: 25%;
+    width: 17%;
+}
+.profile-img svg.box-svg.box4 {
+    left: 67%;
+    top: 25%;
+}
+.members a {
+    position: relative;
+    font-size: larger;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+}
+
+section#socials {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    gap: 5rem;
+    max-width: 700px;
+    width: 70vw;
+    min-width: 300px;
+}
+
+#main>section>h2 {
+    position: absolute;
+    place-self: center;
+    top: 2rem;
+}
+
+.socials-link {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    left: -10rem;
+}
+
+#socials a {
+    width: 8rem;
+    text-align: center;
+    font-size: x-large;
+}
+
+#socials img {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#socials img:hover {
+    transform: rotateZ(-10deg) scale(1.2);
+}
+
+#socials img {
+    width: inherit;
+}
+
+
+.gaulard {
+    position: relative;
+    left: 10rem;
+    display: flex;
+}
+
+#socials .foot {
+    position: absolute;
+    place-self: center;
+    bottom: 0.5rem;
+}
+

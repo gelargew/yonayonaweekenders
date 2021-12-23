@@ -6,6 +6,7 @@ import Album1 from '../images/album1.webp'
 import Album2 from '../images/album2.webp'
 import Album3 from '../images/album3.webp'
 import Album4 from '../images/album4.webp'
+import { Box } from '../components/Box'
 
 const ALBUM_DATA = [
     {
@@ -98,7 +99,7 @@ const AlbumList = () => {
                 <ul>
                     {detail.tracklist.map(track => <li key='track'>{track}</li>)}
                 </ul>
-                <a href={detail.buy} target='_blank'>BUY</a>
+                <a href={detail.buy} target='_blank' title='buy'><Box length={300} />&gt; BUY</a>
             </div>
         )
     
