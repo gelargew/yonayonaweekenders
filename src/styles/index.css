@@ -18,8 +18,8 @@
 }
 
 #section-1 video {
-    height: 100%;
-    width: 100%;
+    height: 70%;
+    max-width: 90%;
     object-fit: cover;
     position: absolute;
 }
@@ -29,8 +29,9 @@
     position: relative;
     font-size: 12vw;
     font-family: 'Roboto';
-    font-weight: 900;
-    font-stretch: extra-expanded;
+    
+
+    font-style: italic;
 }
 
 #hero-1 {
@@ -49,8 +50,15 @@
     display: flex;
     flex-direction: column;
     place-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 5rem;
     padding: 0 10rem;
+}
+
+.album-list-container>h2 {
+    position: absolute;
+    place-self: center;
+    top: 2rem;
 }
 
 .album-list-container-open {
@@ -75,6 +83,7 @@
 
 
 .album-list {
+    position: relative;
     display: flex;
     justify-content: space-around;
     place-items: center;
@@ -118,9 +127,13 @@
 }
 
 .album-back {
-    position: absolute;
-    left: 5%;
-    top: 5%;
+    display: block;
+    padding: 3rem 1rem;
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.album-back:hover {
+    transform: translateX(-10%);
 }
 
 .album-hovered-title {
@@ -130,6 +143,8 @@
 .album-detail a {
     position: relative;
     padding: 1rem;
+    font-size: x-large;
+    color: gold;
 }
 
 
@@ -138,7 +153,6 @@ section#singles {
     background: white;
     color: black;
     transform: skew(-5deg);
-    width: 120vw;
     display: flex;
     flex-direction: column;
     gap: 5rem;

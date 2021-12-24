@@ -26,10 +26,22 @@ export default function Profile() {
                 <Box active={curIdx === 3} className='box4' onPointerEnter={() => setCurIdx(3)} />
             </div>
             <p className='members'>
-                <a href='https://twitter.com/soshit_buzz' target='_blank'><Box />obara"BEASOL"soshi</a>
-                <a href='https://twitter.com/kaziya_works' target='_blank'><Box />スズキシンゴ</a>
-                <a href='https://twitter.com/POPxASxFUCK' target='_blank'><Box />キイチ</a>
-                <a href='https://twitter.com/boku_isono' target='_blank'><Box />磯野くん</a>
+                <a href='https://twitter.com/soshit_buzz' target='_blank' title='@soshit_buzz'>
+                    <Box active={curIdx === 0} onPointerEnter={() => setCurIdx(0)} />
+                    obara"BEASOL"soshi
+                </a>
+                <a href='https://twitter.com/kaziya_works' target='_blank' title='@kaziya_works'>
+                    <Box active={curIdx === 1} onPointerEnter={() => setCurIdx(1)} />
+                    スズキシンゴ
+                </a>
+                <a href='https://twitter.com/POPxASxFUCK' target='_blank' title='@POPxASxFUCK'>
+                    <Box active={curIdx === 2} onPointerEnter={() => setCurIdx(2)} />
+                    キイチ
+                </a>
+                <a href='https://twitter.com/boku_isono' target='_blank' title='@boku_isono'>
+                    <Box active={curIdx === 3} onPointerEnter={() => setCurIdx(3)} />
+                    磯野くん
+                </a>
             </p>
             <ArrowNext />
         </section>

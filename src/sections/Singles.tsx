@@ -4,6 +4,8 @@ import BgText from '../components/BgText'
 import { useMove } from '@use-gesture/react'
 import { Box } from '../components/Box'
 import { SINGLES_DATA } from '../CONSTANTS/singles'
+import { ArrowNext } from '../components/ArrowNext'
+import { useScrollContext } from 'sukuroru'
 
 
 
@@ -11,6 +13,7 @@ import { SINGLES_DATA } from '../CONSTANTS/singles'
 
 export default function Singles()  {
     const [detail, setDetail] = useState({} as typeof SINGLES_DATA[0])
+    const {scrollTo} = useScrollContext()
     const [{y}, spring] = useSpring(() => ({
         y: 0
     }))
@@ -39,6 +42,8 @@ export default function Singles()  {
                 })}
             </ul>
             {detail.imgURL && <a.img className='singles-img' src={detail.imgURL} style={{ y }}/>}
+            <ArrowNext onClick={() =>scrollTo(3)} color='black' />
+            <ArrowNext className='arrow-prev' onClick={() => scrollTo(1)} color='black'/>
         </section>
     )
 }

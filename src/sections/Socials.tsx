@@ -5,8 +5,10 @@ import InstaLogo from '../images/instagram.svg'
 import Laptop from '../images/laptop.svg'
 import Gew from '../images/gew.svg'
 import BgText from '../components/BgText'
+import { useScrollContext } from 'sukuroru'
 
 export default function Socials() {
+    const {scrollTo} = useScrollContext()
 
 
 

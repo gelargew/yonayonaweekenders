@@ -21,6 +21,17 @@ a {
   color: inherit;
 }
 
+button {
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 .bg-text {
   opacity: 0.15;
   font-size: 30vh;
@@ -107,7 +118,33 @@ svg.box-svg rect {
 .arrow-next {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 2rem;
   height: 70px;
-  color: white;
+  color: hsla(0, 0%, 100%, 0.788);
+  transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+.arrow-prev {
+  position: absolute;
+  bottom: 1rem;
+  left: 4rem;
+  height: 70px;
+  color: hsla(0, 0%, 100%, 0.788);
+  transform: rotateY(180deg);
+  transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.arrow-next:hover{
+  cursor: pointer;
+  transform: scaleX(1.4) skew(-10deg, 5deg);
+  will-change: transform;
+}
+
+.arrow-prev:hover {
+  cursor: pointer;
+  transform: scaleX(1.4) skew(-10deg, 5deg) rotateY(180deg);
+  will-change: transform;
+}
+
+
+

@@ -7,6 +7,7 @@ import Album2 from '../images/album2.webp'
 import Album3 from '../images/album3.webp'
 import Album4 from '../images/album4.webp'
 import { Box } from '../components/Box'
+import { ArrowNext, ArrowPrev } from '../components/ArrowNext'
 
 const ALBUM_DATA = [
     {
@@ -45,7 +46,7 @@ const ALBUM_DATA = [
 ]
 
 export default function Section2() {
-
+    const {scrollTo} = useScrollContext()
 
     return (
         <section id='section-2'>
@@ -55,6 +56,8 @@ export default function Section2() {
                 <BgText inverse text='ALBUMS' />
             </div>
             <AlbumList />
+            <ArrowNext onClick={() =>scrollTo(2)} />
+            <ArrowNext className='arrow-prev' onClick={() => scrollTo(0)} />
         </section>
     )
 }
@@ -100,6 +103,7 @@ const AlbumList = () => {
                     {detail.tracklist.map(track => <li key='track'>{track}</li>)}
                 </ul>
                 <a href={detail.buy} target='_blank' title='buy'><Box length={300} />&gt; BUY</a>
+                {isOpen && <button className='album-back' onClick={() => setIsOpen(false)}>&lt;&lt; select album</button>}   
             </div>
         )
     
@@ -119,10 +123,9 @@ const AlbumList = () => {
                     onPointerEnter={() => setCurTitle(ALBUM_DATA[idx].title)}
                     onPointerLeave={() => setCurTitle('')}
                     />
-                })}               
+                })}            
             </div>
             {isOpen ? <AlbumDetail /> : <h3 className='album-hovered-title'>{curTitle}</h3>}
-            {isOpen && <button className='album-back' onClick={() => setIsOpen(false)}>BACK</button>}
         </div>
     )
 }
