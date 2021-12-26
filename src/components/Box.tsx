@@ -33,7 +33,7 @@ const Box = ({
         fill="none"
         {...props}
         >
-            <rect x="2.5" y="2.5" width="95%" height="90%" stroke="white" stroke-width="5"/>
+            <rect x="2.5" y="2.5" width="95%" height="90%" stroke="white" strokeWidth="5"/>
         </a.svg>
     )
 }

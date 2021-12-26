@@ -24,6 +24,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-spring": "^9.3.2",
-    "sukuroru": "^0.1.4"
+    "sukuroru": "^0.1.4",
+    "zustand": "^3.6.8"
   }
 }

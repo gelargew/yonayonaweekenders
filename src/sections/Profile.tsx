@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useScrollContext } from 'sukuroru'
-import { ArrowNext } from '../components/ArrowNext'
 import BgText from '../components/BgText'
 import { Box } from '../components/Box'
 
@@ -9,8 +8,6 @@ import profileImage from '../images/profile.webp'
 
 export default function Profile() {
     const [curIdx, setCurIdx] = useState(0)
-    const {scrollTo} = useScrollContext()
-
 
     return (
         <section id='profile'>
@@ -45,8 +42,6 @@ export default function Profile() {
                     磯野くん
                 </a>
             </p>
-            <ArrowNext onClick={() => scrollTo(4)} />
-            <ArrowNext className='arrow-prev' onClick={() => scrollTo(2)} />
         </section>
     )
 }

@@ -7,7 +7,6 @@ import Album2 from '../images/album2.webp'
 import Album3 from '../images/album3.webp'
 import Album4 from '../images/album4.webp'
 import { Box } from '../components/Box'
-import { ArrowNext, ArrowPrev } from '../components/ArrowNext'
 
 const ALBUM_DATA = [
     {
@@ -46,7 +45,6 @@ const ALBUM_DATA = [
 ]
 
 export default function Section2() {
-    const {scrollTo} = useScrollContext()
 
     return (
         <section id='section-2'>
@@ -56,8 +54,6 @@ export default function Section2() {
                 <BgText inverse text='ALBUMS' />
             </div>
             <AlbumList />
-            <ArrowNext onClick={() =>scrollTo(2)} />
-            <ArrowNext className='arrow-prev' onClick={() => scrollTo(0)} />
         </section>
     )
 }

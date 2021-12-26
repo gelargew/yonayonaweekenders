@@ -10098,3 +10098,8 @@ yurnalist@^2.1.0:
     is-ci "^2.0.0"
     read "^1.0.7"
     strip-ansi "^5.2.0"
+
+zustand@^3.6.8:
+  version "3.6.8"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-3.6.8.tgz#17f24351aa9e1fbf46f3addb0bcb81b05940d79f"
+  integrity sha512-8dqxig1l/o/N4M3DGxhweLVyCvNsd40oU3fXuY4MfqX1notavmjljCnSeTN3FGfYzbo963w4un2ChYsPB/0gKA==

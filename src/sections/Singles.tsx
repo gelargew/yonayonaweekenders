@@ -4,7 +4,7 @@ import BgText from '../components/BgText'
 import { useMove } from '@use-gesture/react'
 import { Box } from '../components/Box'
 import { SINGLES_DATA } from '../CONSTANTS/singles'
-import { ArrowNext } from '../components/ArrowNext'
+import { ArrowNext } from '../components/Svgs'
 import { useScrollContext } from 'sukuroru'
 
 

@@ -154,16 +154,22 @@ svg.box-svg rect {
   gap: 1rem;
   overflow: hidden;
   background: rgb(31, 31, 31);
-  left: 60vw;
+  left: 10vw;
   transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   border-radius: 0 0 5px 5px;
   padding: 3rem 1rem 1rem 1rem;
   transform: rotateZ(-10deg) translateY(-13rem);
-  width: 8rem;
+  width: 7rem;
 }
 
-.nav-toggle {
+.nav-toggle svg {
   padding-top: 1rem;
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  will-change: transform;
+}
+
+.nav-toggle:hover svg{
+  transform: rotateY(180deg);
 }
 
 #nav-container.nav-open {

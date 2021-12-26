@@ -1,15 +1,16 @@
-import React, { useMemo, useRef } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import Vid from '../videos/yonayona.mp4'
 import { a, useTrail, config } from 'react-spring'
 import { useScrollContext } from 'sukuroru'
-import { ArrowNext } from '../components/ArrowNext'
+import { ArrowNext } from '../components/Svgs'
 import BgText from '../components/BgText'
 import useOnScreen from '../utils/useOnScreen'
+import { useStore } from '../pages'
 
 const HERO_TEXT = ['YONA', 'YONA', 'WEEKENDERS']
 
 export default function Section1() {
-    const {offset, scrollTo, wrapper} = useScrollContext()
+    const {offset, scrollTo, wrapper, content} = useScrollContext()
     const textHeight = useMemo(() => wrapper.width*0.14, [wrapper])
     const ref = useRef<HTMLDivElement>()
     const onScreen = useOnScreen(ref, '-20%')
@@ -21,6 +22,15 @@ export default function Section1() {
         config: config.molasses,
         delay: 1000
     })
+    const {pageIdx, changePage} = useStore()
+    useEffect(() => {
+        if (typeof pageIdx != 'number') return
+        if (pageIdx === 4) {      
+            scrollTo(`${content.width - wrapper.width}px`)
+        }
+        else scrollTo(pageIdx)
+        changePage(false)
+    }, [pageIdx])
     
 
     return (
