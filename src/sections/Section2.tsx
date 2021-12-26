@@ -97,7 +97,7 @@ const AlbumList = () => {
                 <ul>
                     {detail.tracklist.map(track => <li key='track'>{track}</li>)}
                 </ul>
-                <a href={detail.buy} target='_blank' title='buy'><Box length={300} />&gt; BUY</a>
+                <a href={detail.buy} target='_blank' title='buy' rel="noopener"><Box length={300} />&gt; BUY</a>
                 {isOpen && <button className='album-back' onClick={() => setIsOpen(false)}>&lt;&lt; select album</button>}   
             </div>
         )

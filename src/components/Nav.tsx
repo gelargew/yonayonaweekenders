@@ -13,11 +13,11 @@ export default function Nav() {
     
     return (
         <div id='nav-container'  className={open ? 'nav-open' : ''}>
-            <button onClick={() => handleClick(0)}>HOME</button>
-            <button onClick={() => handleClick(1)}>ALBUMS</button>
-            <button onClick={() => handleClick(2)}>SINGLES</button>
-            <button onClick={() => handleClick(3)}>PROFILE</button>
-            <button onClick={() => handleClick(4)}>SOCIALS</button>
+            <button name='home' title='home' onClick={() => handleClick(0)}>HOME</button>
+            <button name='albums' title='albums' onClick={() => handleClick(1)}>ALBUMS</button>
+            <button name='singles' title='albums' onClick={() => handleClick(2)}>SINGLES</button>
+            <button name='profile' title='profile' onClick={() => handleClick(3)}>PROFILE</button>
+            <button name='socials' title='socials' onClick={() => handleClick(4)}>SOCIALS</button>
 
             <button 
             onClick={() => setOpen(!open)}

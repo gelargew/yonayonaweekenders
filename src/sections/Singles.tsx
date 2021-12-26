@@ -36,7 +36,7 @@ export default function Singles()  {
                     return (
                         <li key={data.title} onPointerEnter={() => setDetail(SINGLES_DATA[idx])} title='buy'>
                             <Box active={detail.title === data.title} /> 
-                            <a href={data.buy}  target='_blank'>{data.title}</a>
+                            <a href={data.buy}  target='_blank' rel="noopener">{data.title}</a>
                         </li>
                     )
                 })}
