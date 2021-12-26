@@ -17,7 +17,7 @@ const PROFILE = [
     {
         name: '磯野くん',
         twitter: 'https://twitter.com/boku_isono',
-        instrument: 'Guitar & vocal'
+        instrument: 'Vocal & guitar'
     }
 
 ]

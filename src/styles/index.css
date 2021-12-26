@@ -24,14 +24,19 @@
     position: absolute;
 }
 
-#section-1 h1 {
+#section-1 .hero-text {
     z-index: 2;
     position: relative;
     font-size: 12vw;
     font-family: 'Roboto';
-    
-
+    height: 14vw;
     font-style: italic;
+}
+
+.hero-text h1 {
+    font-size: inherit;
+    overflow: hidden;
+    width: 110%;
 }
 
 #hero-1 {
@@ -109,6 +114,11 @@
     opacity: 0.2;
     width: 200px;
     height: 200px;
+}
+
+.album-list.album-open img:hover {
+    cursor: pointer;
+    opacity: 1;
 }
 
 .album-list img {

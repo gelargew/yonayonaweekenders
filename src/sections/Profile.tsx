@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useScrollContext } from 'sukuroru'
 import { ArrowNext } from '../components/ArrowNext'
 import BgText from '../components/BgText'
 import { Box } from '../components/Box'
@@ -8,6 +9,7 @@ import profileImage from '../images/profile.webp'
 
 export default function Profile() {
     const [curIdx, setCurIdx] = useState(0)
+    const {scrollTo} = useScrollContext()
 
 
     return (
@@ -17,7 +19,7 @@ export default function Profile() {
                 <BgText text='PROFILE' inverse />
                 <BgText text='PROFILE' />
             </div>
-            <h2>PROFILES</h2>
+            <h2>PROFILE</h2>
             <div className='profile-img'>
                 <img src={profileImage} alt='profile' />
                 <Box active={curIdx === 0} className='box1' onPointerEnter={() => setCurIdx(0)}  />
@@ -43,7 +45,8 @@ export default function Profile() {
                     磯野くん
                 </a>
             </p>
-            <ArrowNext />
+            <ArrowNext onClick={() => scrollTo(4)} />
+            <ArrowNext className='arrow-prev' onClick={() => scrollTo(2)} />
         </section>
     )
 }

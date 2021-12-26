@@ -72,7 +72,6 @@ const AlbumList = () => {
     const detail = useMemo(() => ALBUM_DATA[curIdx], [curIdx])
 
     const handleImgClick = (idx: number) => {
-        if (isOpen) return
         setCurIdx(idx)
         setIsOpen(true)
         scrollTo(1)
@@ -92,7 +91,7 @@ const AlbumList = () => {
         }
         
 
-    }, [isOpen])
+    }, [isOpen, curIdx])
 
     const AlbumDetail = () => (
             <div className='album-detail'>
