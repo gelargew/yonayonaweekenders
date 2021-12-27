@@ -20,6 +20,7 @@ export default function Nav() {
             <button name='socials' title='socials' onClick={() => handleClick(4)}>SOCIALS</button>
 
             <button 
+            name='nav-toggle'
             onClick={() => setOpen(!open)}
             className='nav-toggle'
             >

@@ -175,3 +175,11 @@ svg.box-svg rect {
 #nav-container.nav-open {
   transform: rotateZ(-10deg) translateY(-2rem);
 }
+
+
+@media screen and (max-width: 900px) { 
+  .arrow-next, .arrow-prev {
+    display: none;
+  }
+
+}

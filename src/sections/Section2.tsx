@@ -7,6 +7,7 @@ import Album2 from '../images/album2.webp'
 import Album3 from '../images/album3.webp'
 import Album4 from '../images/album4.webp'
 import { Box } from '../components/Box'
+import { useStore } from '../pages'
 
 const ALBUM_DATA = [
     {
@@ -64,6 +65,7 @@ const AlbumList = () => {
     const [curIdx, setCurIdx] = useState(0)
     const ref = useRef<HTMLDivElement>(null!)
     const {scrollTo} = useScrollContext()
+    const {isMobile} = useStore()
     const [curTitle, setCurTitle] = useState('')
     const detail = useMemo(() => ALBUM_DATA[curIdx], [curIdx])
 
@@ -73,20 +75,22 @@ const AlbumList = () => {
         scrollTo(1)
     }
 
-    useLayoutEffect(() => {
-        
+    useEffect(() => {
+        if (isMobile) setIsOpen(true)
+    }, [isMobile])
+
+    useLayoutEffect(() => {    
+        if (isMobile) return
         if (isOpen) {
             const el = ref.current.children[curIdx] as HTMLElement
             const offsetDoc = ref.current.offsetHeight - window.innerHeight
             const y = -el.offsetTop/2 + offsetDoc/2
-            console.log(ref.current.clientHeight)
             ref.current.style.transform = `translateY(${y}px)`         
         }
         else {
             ref.current.style.transform = `translateY(0px)` 
         }
         
-
     }, [isOpen, curIdx])
 
     const AlbumDetail = () => (
@@ -95,10 +99,10 @@ const AlbumList = () => {
                 <p>{detail.date}</p>
                 <p>{detail.detail}</p>
                 <ul>
-                    {detail.tracklist.map(track => <li key='track'>{track}</li>)}
+                    {detail.tracklist.map(track => <li key={track}>{track}</li>)}
                 </ul>
                 <a href={detail.buy} target='_blank' title='buy' rel="noopener"><Box length={300} />&gt; BUY</a>
-                {isOpen && <button className='album-back' onClick={() => setIsOpen(false)}>&lt;&lt; select album</button>}   
+                {isOpen && !isMobile && <button className='album-back' onClick={() => setIsOpen(false)}>&lt;&lt; select album</button>}   
             </div>
         )
     
@@ -106,6 +110,7 @@ const AlbumList = () => {
     return (
         <div className={isOpen ? 'album-list-container-open' : 'album-list-container'}>
             {!isOpen && <h2>ALBUMS</h2>}
+            {isMobile && <h2 className='albums-title'>ALBUMS</h2>}
             <div ref={ref} className={isOpen ? 'album-list album-open' : 'album-list'}>
                 {ALBUM_DATA.map((data, idx) => {
                     return <img 

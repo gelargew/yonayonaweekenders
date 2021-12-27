@@ -11,15 +11,24 @@ import Singles from "../sections/Singles"
 import Socials from "../sections/Socials"
 import Icon from '../images/laptop.svg'
 import '../styles/index.css'
+import useMatchMedia from "../utils/useMatchMedia"
 
 
 export const useStore = create(set => ({
   pageIdx: 0,
-  changePage: (n: number | boolean) => set({pageIdx: n})
+  changePage: (n: number | boolean) => set({pageIdx: n}),
+  isMobile: false,
+  changeMedia: (x: boolean) => set({isMobile: x})
 }))
 
 
 const IndexPage = () => {
+  const isMatch = useMatchMedia()
+  const {isMobile, changeMedia} = useStore()
+  React.useEffect(() => {
+    changeMedia(isMatch)
+  }, [isMatch])
+
   return (
     <>
       <Helmet>
@@ -32,7 +41,7 @@ const IndexPage = () => {
       </Helmet>
       
       <Nav />
-      <ScrollWrapper innerProps={{ id: 'main'}} horizontal>
+      <ScrollWrapper innerProps={{ id: 'main'}} horizontal={!isMobile}>
         
         <Section1 />
         <Section2 />

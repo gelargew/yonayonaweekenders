@@ -12,6 +12,7 @@ const HERO_TEXT = ['YONA', 'YONA', 'WEEKENDERS']
 export default function Section1() {
     const {offset, scrollTo, wrapper, content} = useScrollContext()
     const textHeight = useMemo(() => wrapper.width*0.14, [wrapper])
+    const {changeMedia, isMobile} = useStore()
     const ref = useRef<HTMLDivElement>()
     const onScreen = useOnScreen(ref, '-20%')
     const trail = useTrail(3, {
@@ -31,6 +32,11 @@ export default function Section1() {
         else scrollTo(pageIdx)
         changePage(false)
     }, [pageIdx])
+
+    useEffect(() => {
+        if (wrapper.width < 900) changeMedia(true)
+        else changeMedia(false)
+    }, [wrapper.width])
     
 
     return (
@@ -47,7 +53,7 @@ export default function Section1() {
                     </a.div>      
                 )}
             )}
-            <ArrowNext onClick={() => scrollTo(1)} />
+            {!isMobile && <ArrowNext onClick={() => scrollTo(1)} />}
         </section>
     )
 }

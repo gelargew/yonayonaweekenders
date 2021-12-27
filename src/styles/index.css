@@ -182,6 +182,7 @@ section#singles {
     position: relative;
     width: 100%;
     padding: 10px 1rem;
+    list-style: none;
 }
 
 .singles-list li:hover {
@@ -307,3 +308,141 @@ section#socials {
     bottom: 0.5rem;
 }
 
+@media screen and (max-width: 900px) {
+    #main>section {
+        height: auto;
+        min-height: 100vh;
+    }
+    #section-1 {
+        height: 100vh;
+    }
+    #main>#section-2 {
+        display: flex;
+        place-items: center;
+    }
+
+    .albums-title {
+        place-self: center;
+    }
+
+    .album-list-container-open {
+        width: auto;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        place-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .album-list.album-open {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        width: 100%;
+        transform: translateY(70px);
+        height: auto;
+    }
+
+    .album-list.album-open img {
+        opacity: 0.2;
+        width: 150px;
+        height: 150px;
+    }
+    .album-list.album-open img.album-img-active {
+        width: 150px;
+        height: 150px;
+        opacity: 1;
+    }
+    .album-detail {
+        padding: 0 2rem;
+    }
+
+
+    #main>#singles {
+        width: 120%;
+        left: -10%;
+        transform: skewX(1deg);
+    }
+
+    .singles-img {
+        height: auto;
+        width: 80%;
+    }
+    .singles-list li a {
+        mix-blend-mode: difference;
+        color: white;
+        font-size: medium;
+    }
+    .singles-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+
+    .profile-img {
+        height: auto;
+        width: 95vw;
+    }
+    .profile-img img {
+        width: 100%;
+    }
+
+    p.members {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #main>section#socials {
+        height: auto;
+        gap: 4rem;
+        width: 100%;
+        place-items: flex-start;
+        min-height: auto;
+        padding: 6rem 0;
+        background: rgba(255, 255, 255, 0.123);
+    }
+    .socials-link {
+        position: relative;
+        display: flex;
+        gap: 2rem;
+        left: 5%;
+    }
+    #socials a {
+        width: 4rem;
+        text-align: center;
+        font-size: small;
+    }
+    .gaulard {
+        position: relative;
+        left: 40%;
+        width: 50%;
+        flex-direction: row;
+    }
+
+    #socials .gaulard a {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+    }
+    #socials .gaulard a img {
+        width: 2rem;
+
+    }
+
+    #socials .foot {
+        font-size: xx-small;
+    }
+
+    .bg-text-container {
+        z-index: -1;
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        height: 200%;
+        display: flex;
+        justify-content: space-around;
+        transform: rotateZ(-90deg);
+    }
+    
+}
